@@ -12,7 +12,7 @@ import javax.persistence.Entity;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PricingPerRange extends PricingBo {
+public class PricingPerRangeBo extends PricingBo {
     private Double min;
     private Double max;
 }

@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PricingPerVolume extends PricingBo {
+public class PricingPerVolumeBo extends PricingBo {
     private Double volume;
     private VolumeUnit unit;
 }

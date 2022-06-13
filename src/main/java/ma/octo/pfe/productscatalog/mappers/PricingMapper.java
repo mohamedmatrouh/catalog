@@ -4,8 +4,8 @@ import ma.octo.pfe.productscatalog.dtos.pricing.PricingDto;
 import ma.octo.pfe.productscatalog.dtos.pricing.PricingPerRangeDto;
 import ma.octo.pfe.productscatalog.dtos.pricing.PricingPerVolumeDto;
 import ma.octo.pfe.productscatalog.model.PricingBo;
-import ma.octo.pfe.productscatalog.model.PricingPerRange;
-import ma.octo.pfe.productscatalog.model.PricingPerVolume;
+import ma.octo.pfe.productscatalog.model.PricingPerRangeBo;
+import ma.octo.pfe.productscatalog.model.PricingPerVolumeBo;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,11 +16,11 @@ public class PricingMapper {
         if (pricingBo == null)
             return null;
 
-        if (pricingBo instanceof PricingPerRange)
-            return fromPricingPerRangeBoToPricingPerRangeDto((PricingPerRange) pricingBo);
+        if (pricingBo instanceof PricingPerRangeBo)
+            return fromPricingPerRangeBoToPricingPerRangeDto((PricingPerRangeBo) pricingBo);
 
-        if (pricingBo instanceof PricingPerVolume)
-            return fromPricingPerVolumeBoToPricingPerVolumeDto((PricingPerVolume) pricingBo);
+        if (pricingBo instanceof PricingPerVolumeBo)
+            return fromPricingPerVolumeBoToPricingPerVolumeDto((PricingPerVolumeBo) pricingBo);
 
         return PricingDto.builder()
                 .type(pricingBo.getType())
@@ -50,7 +50,7 @@ public class PricingMapper {
         if(pricingDto == null)
             return null;
 
-        PricingPerVolume pricing = new PricingPerVolume();
+        PricingPerVolumeBo pricing = new PricingPerVolumeBo();
         pricing.setPrice(pricingDto.getPrice());
         pricing.setType(pricingDto.getType());
         pricing.setVolume(pricingDto.getVolume());
@@ -63,7 +63,7 @@ public class PricingMapper {
         if(pricingDto == null)
             return null;
 
-        PricingPerRange pricing = new PricingPerRange();
+        PricingPerRangeBo pricing = new PricingPerRangeBo();
         pricing.setPrice(pricingDto.getPrice());
         pricing.setType(pricingDto.getType());
         pricing.setMin(pricingDto.getMin());
@@ -71,7 +71,7 @@ public class PricingMapper {
         return pricing;
     }
 
-    private static PricingDto fromPricingPerVolumeBoToPricingPerVolumeDto(PricingPerVolume pricingBo) {
+    private static PricingDto fromPricingPerVolumeBoToPricingPerVolumeDto(PricingPerVolumeBo pricingBo) {
 
         if(pricingBo == null)
             return null;
@@ -84,7 +84,7 @@ public class PricingMapper {
         return pricing;
     }
 
-    private static PricingPerRangeDto fromPricingPerRangeBoToPricingPerRangeDto(PricingPerRange PricingPerRangeBo) {
+    private static PricingPerRangeDto fromPricingPerRangeBoToPricingPerRangeDto(PricingPerRangeBo PricingPerRangeBo) {
 
         if(PricingPerRangeBo == null)
             return null;
